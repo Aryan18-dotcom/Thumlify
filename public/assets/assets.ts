@@ -1,3 +1,11 @@
+import thumb_1 from "./thumb_1.jpg";
+import thumb_2 from "./thumb_2.jpg";
+import thumb_3 from "./thumb_3.jpg";
+import thumb_4 from "./thumb_4.jpg";
+import thumb_5 from "./thumb_5.jpg";
+import thumb_6 from "./thumb_6.jpg";
+import thumb_7 from "./thumb_7.jpg";
+
 export const aspectRatios = ["16:9", "1:1", "9:16"];
 export type AspectRatio = (typeof aspectRatios)[number];
 
@@ -33,7 +41,7 @@ export interface IThumbnail {
     aspect_ratio?: "16:9" | "1:1" | "9:16";
     color_scheme?: "vibrant" | "sunset" | "forest" | "neon" | "purple" | "monochrome" | "ocean" | "pastel";
     text_overlay?: boolean;
-    imageUrl?: string;
+    image_url?: string;
     prompt_used?: string;
     user_prompt?: string;
     isGenerating?: boolean;
@@ -54,112 +62,106 @@ export const dummyThumbnails = [
         _id: "69451ff3c9ea67e4c930f6a6",
         userId: "6942b3bd2a93a220baa331b3",
         title: "Top smartwatch under 1499",
-        style: "bold_graphic",
-        aspect: "16:9",
-        colorScheme: "vibrant",
+        style: "Bold & Graphic",
+        aspect_ratio: "16:9",
+        color_scheme: "vibrant",
         text_overlay: true,
-        imageUrl: "/assets/thumb_1.jpg",
-        prompt: "add multiple smartwatches",
+        image_url: thumb_1,
+        prompt_used: "add multiple smartwatches ",
+        user_prompt: "add multiple smartwatches ",
         isGenerating: false,
         createdAt: "2025-12-19T09:50:43.727Z",
         updatedAt: "2025-12-19T09:51:07.874Z",
-        model: "premium",
         __v: 0,
     },
     {
         _id: "69451d5bc9ea67e4c930f698",
         userId: "6942b3bd2a93a220baa331b3",
         title: "Learn How to make 100k in 10 days",
-        style: "bold_graphic",
-        aspect: "16:9",
-        colorScheme: "vibrant",
+        style: "Bold & Graphic",
+        aspect_ratio: "16:9",
+        color_scheme: "vibrant",
         text_overlay: true,
-        imageUrl: "/assets/thumb_2.jpg",
-        prompt: "add cash images graph and etc",
+        image_url: thumb_2,
+        prompt_used: "add cash images graph and etc",
+        user_prompt: "add cash images graph and etc",
         isGenerating: false,
         createdAt: "2025-12-19T09:39:39.971Z",
         updatedAt: "2025-12-19T09:40:05.084Z",
-        model: "premium",
         __v: 0,
     },
     {
         _id: "6943fb409fa048268a04f105",
         userId: "6942b3bd2a93a220baa331b3",
         title: "Learn NextJS 16 with a Project",
-        style: "bold_graphic",
-        aspect: "16:9",
-        colorScheme: "vibrant",
+        style: "Bold & Graphic",
+        aspect_ratio: "16:9",
+        color_scheme: "vibrant",
         text_overlay: true,
-        imageUrl: "/assets/thumb_3.jpg",
-        prompt: "add human with laptop",
+        image_url: thumb_3,
+        prompt_used: "add human with laptop",
+        user_prompt: "add human with laptop",
         isGenerating: false,
         createdAt: "2025-12-18T13:01:52.205Z",
         updatedAt: "2025-12-18T13:02:13.766Z",
-        model: "premium",
         __v: 0,
     },
     {
         _id: "6943e8c763d3d5ec3e4f5c8c",
         userId: "6942b3bd2a93a220baa331b3",
         title: "Learn how to use Photoshop",
-        style: "bold_graphic",
-        aspect: "16:9",
-        colorScheme: "vibrant",
+        style: "Bold & Graphic",
+        aspect_ratio: "16:9",
+        color_scheme: "vibrant",
         text_overlay: true,
-        imageUrl: "/assets/thumb_4.jpg",
-        prompt: "",
+        image_url: thumb_4,
+        prompt_used: "",
+        user_prompt: "",
         isGenerating: false,
         createdAt: "2025-12-18T11:43:03.281Z",
         updatedAt: "2025-12-18T11:43:24.982Z",
-        model: "premium",
         __v: 0,
     },
     {
         _id: "6943e2220611d25b40e529b3",
         userId: "6942b3bd2a93a220baa331b3",
         title: "Make Burger in 30 min",
-        style: "photorealistic",
-        aspect: "1:1",
-        colorScheme: "vibrant",
+        style: "Photorealistic",
+        aspect_ratio: "1:1",
+        color_scheme: "vibrant",
         text_overlay: true,
-        imageUrl: "/assets/thumb_5.jpg",
-        prompt: "delicious burger with melting cheese",
+        image_url: thumb_5,
         isGenerating: false,
         createdAt: "2025-12-18T11:14:42.466Z",
         updatedAt: "2025-12-18T11:15:04.260Z",
-        model: "basic",
         __v: 0,
     },
     {
         _id: "6943e04c0611d25b40e529ac",
         userId: "6942b3bd2a93a220baa331b3",
         title: "Learn Full Stack Development",
-        style: "bold_graphic",
-        aspect: "16:9",
-        colorScheme: "vibrant",
+        style: "Bold & Graphic",
+        aspect_ratio: "16:9",
+        color_scheme: "vibrant",
         text_overlay: true,
-        imageUrl: "/assets/thumb_6.jpg",
-        prompt: "coding setup with multiple screens",
+        image_url: thumb_6,
         isGenerating: false,
         createdAt: "2025-12-18T11:06:52.555Z",
         updatedAt: "2025-12-18T11:07:18.715Z",
-        model: "premium",
         __v: 0,
     },
     {
         _id: "6943d68d5b9fed7040154a0f",
         userId: "6942b3bd2a93a220baa331b3",
         title: "Learn ReactJS in 2 hours",
-        style: "bold_graphic",
-        aspect: "16:9",
-        colorScheme: "ocean",
+        style: "Bold & Graphic",
+        aspect_ratio: "16:9",
+        color_scheme: "ocean",
         text_overlay: true,
-        imageUrl: "/assets/thumb_7.jpg",
-        prompt: "react logo with blue lighting",
+        image_url: thumb_7,
         isGenerating: false,
         createdAt: "2025-12-18T10:25:17.135Z",
         updatedAt: "2025-12-18T10:25:41.648Z",
-        model: "premium",
         __v: 0,
     },
 ];
@@ -174,49 +176,10 @@ export const yt_html = `
             <!-- Tailwind CSS CDN -->
             <script src="https://cdn.tailwindcss.com"></script>
             <script>
-                tailwind.config = { 
-                    darkMode: 'class', 
-                    theme: { 
-                        extend: { 
-                            colors: { 
-                                yt: '#0f0f0f', 
-                                yt2: '#181818', 
-                                ytBorder: '#303030', 
-                            },
-                            boxShadow: { 
-                                'glow': '0 0 15px -3px rgba(236, 72, 153, 0.5)' 
-                            },
-                            keyframes: {
-                                borderPulse: {
-                                    '0%, 100%': { opacity: '1', transform: 'scale(1)' },
-                                    '50%': { opacity: '0.4', transform: 'scale(1.01)' },
-                                }
-                            },
-                            animation: {
-                                'border-pulse': 'borderPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                            }
-                        }, 
-                    }, 
-                };
+                tailwind.config = { darkMode: 'class', theme: { extend: { colors: { yt: '#0f0f0f', yt2: '#181818', ytBorder: '#303030', }, }, }, };
             </script>
             <!-- Lucide Icons CDN -->
             <script src="https://unpkg.com/lucide@latest"></script>
-            <style>
-                /* Highlighting logic using a pseudo-element for the border pulse */
-                .highlight-active {
-                    position: relative;
-                }
-                .highlight-active::before {
-                    content: "";
-                    position: absolute;
-                    inset: 0;
-                    border: 2px solid #ec4899;
-                    border-radius: 1rem;
-                    pointer-events: none;
-                    animation: borderPulse 2s infinite;
-                    box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
-                }
-            </style>
         </head>
         <body class="dark bg-yt text-white font-sans">
             <!-- ================= HEADER ================= -->
@@ -263,13 +226,9 @@ export const yt_html = `
                         <a class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2"><i data-lucide="thumbs-up"></i> Liked videos</a>
                         <hr class="border-ytBorder" />
                         <p class="px-3 text-xs text-gray-400 uppercase">Subscriptions</p>
-                        <a target="_blank" href="https://ac-portfolio-phi.vercel.app" class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2"> 
-                            <img src="public/assets/personal/ac-logo.png" onerror="this.src='https://i.pravatar.cc/30?img=1'" class="rounded-full size-7 invert" /> AC-Portfolio 
-                        </a>
+                        <a target="_blank" href="https://www.youtube.com/@GreatStackDev?sub_confirmation=1" class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2"> <img src="https://greatstack.dev/favicon.ico" class="rounded-full size-7" /> GreatStack </a>
                         
-                        <a target="_blank" href="https://ac-portfolio-phi.vercel.app/contact" class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2"> 
-                            <div class="bg-blue-600 rounded-full size-7 flex items-center justify-center text-[10px]">CM</div> Contact the Maker
-                        </a>
+                        <a class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2"> <img src="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2023.ico" class="rounded-full size-7" /> Netflix </a>
                         <a class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2"> <img src="https://images.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="rounded-full size-7" /> Google </a>
                     </nav>
                 </aside>
@@ -287,44 +246,121 @@ export const yt_html = `
                     </div>
 
                     <!-- VIDEO GRID -->
-                    <section id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        ${Array(9).fill(0).map((_, i) => `
-                        <article class="video-card transition-all duration-300 rounded-2xl p-2 relative bg-yt2">
-                            <img src="https://picsum.photos/600/340?${i+10}" class="rounded-xl aspect-video object-cover" />
+                    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- CARD -->
+                        <article>
+                            <img src="https://picsum.photos/600/340?1" class="rounded-xl" />
                             <div class="flex gap-3 mt-3">
-                                <img src="https://i.pravatar.cc/36?${i+10}" class="rounded-full h-9 w-9" />
+                                <img src="https://i.pravatar.cc/36?1" class="rounded-full h-9 w-9" />
                                 <div>
-                                    <h3 class="font-semibold line-clamp-2">Learning Web Development Episode ${i+1}</h3>
-                                    <p class="text-sm text-gray-400">Creator Channel</p>
-                                    <p class="text-sm text-gray-400">${(Math.random() * 100).toFixed(1)}K views • ${i+1} days ago</p>
+                                    <h3 class="font-semibold line-clamp-2">Breaking MASS Hiring – TCS, IBM | Tech Mahindra</h3>
+                                    <p class="text-sm text-gray-400">Online Learning</p>
+                                    <p class="text-sm text-gray-400">12K views • 23 hours ago</p>
                                 </div>
                             </div>
                         </article>
-                        `).join('')}
+
+                        <article>
+                            <img src="https://picsum.photos/600/340?2" class="rounded-xl" />
+                            <div class="flex gap-3 mt-3">
+                                <img src="https://i.pravatar.cc/36?2" class="rounded-full h-9 w-9" />
+                                <div>
+                                    <h3 class="font-semibold line-clamp-2">My 6 Year Journey as a Backend Developer</h3>
+                                    <p class="text-sm text-gray-400">Genie Ashwani</p>
+                                    <p class="text-sm text-gray-400">28K views • 3 weeks ago</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article>
+                            <img src="https://picsum.photos/600/340?3" class="rounded-xl" />
+                            <div class="flex gap-3 mt-3">
+                                <img src="https://i.pravatar.cc/36?3" class="rounded-full h-9 w-9" />
+                                <div>
+                                    <h3 class="font-semibold line-clamp-2">Spring Boot Project Tutorial – REST API + JWT</h3>
+                                    <p class="text-sm text-gray-400">Faisal Memon</p>
+                                    <p class="text-sm text-gray-400">2.5K views • 17 hours ago</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article>
+                            <img src="%%THUMBNAIL_URL%%" class="rounded-xl aspect-video object-top" />
+                            <div class="flex gap-3 mt-3">
+                                <img src="https://i.pravatar.cc/36?4" class="rounded-full h-9 w-9" />
+                                <div>
+                                    <h3 class="font-semibold line-clamp-2">%%TITLE%%</h3>
+                                    <p class="text-sm text-gray-400">Neo TY Channel</p>
+                                    <p class="text-sm text-gray-400">2.3M views • 12 days ago</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article>
+                            <img src="https://picsum.photos/600/340?5" class="rounded-xl" />
+                            <div class="flex gap-3 mt-3">
+                                <img src="https://i.pravatar.cc/36?5" class="rounded-full h-9 w-9" />
+                                <div>
+                                    <h3 class="font-semibold line-clamp-2">Full course: Build a production app with Next.js</h3>
+                                    <p class="text-sm text-gray-400">Academy Channel</p>
+                                    <p class="text-sm text-gray-400">4.8M views • 1 year ago</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article>
+                            <img src="https://picsum.photos/600/340?6" class="rounded-xl" />
+                            <div class="flex gap-3 mt-3">
+                                <img src="https://i.pravatar.cc/36?6" class="rounded-full h-9 w-9" />
+                                <div>
+                                    <h3 class="font-semibold line-clamp-2">Short: Amazing CSS trick</h3>
+                                    <p class="text-sm text-gray-400">Design Byte</p>
+                                    <p class="text-sm text-gray-400">95K views • 4 days ago</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article>
+                            <img src="https://picsum.photos/600/340?7" class="rounded-xl" />
+                            <div class="flex gap-3 mt-3">
+                                <img src="https://i.pravatar.cc/36?7" class="rounded-full h-9 w-9" />
+                                <div>
+                                    <h3 class="font-semibold line-clamp-2">React 18 new features — what's changed?</h3>
+                                    <p class="text-sm text-gray-400">Frontend Focus</p>
+                                    <p class="text-sm text-gray-400">10K views • 6 days ago</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article>
+                            <img src="https://picsum.photos/600/340?8" class="rounded-xl" />
+                            <div class="flex gap-3 mt-3">
+                                <img src="https://i.pravatar.cc/36?8" class="rounded-full h-9 w-9" />
+                                <div>
+                                    <h3 class="font-semibold line-clamp-2">Top 20 music tracks this month — playlist</h3>
+                                    <p class="text-sm text-gray-400">Music Hub</p>
+                                    <p class="text-sm text-gray-400">1.1M views • 3 days ago</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article>
+                            <img src="https://picsum.photos/600/340?9" class="rounded-xl" />
+                            <div class="flex gap-3 mt-3">
+                                <img src="https://i.pravatar.cc/36?9" class="rounded-full h-9 w-9" />
+                                <div>
+                                    <h3 class="font-semibold line-clamp-2">Top 20 music tracks this month — playlist</h3>
+                                    <p class="text-sm text-gray-400">Music Hub</p>
+                                    <p class="text-sm text-gray-400">1.1M views • 3 days ago</p>
+                                </div>
+                            </div>
+                        </article>
                     </section>
                 </main>
             </div>
 
             <script>
                 lucide.createIcons();
-
-                const cards = document.querySelectorAll('.video-card');
-                const randomIndex = Math.floor(Math.random() * 6);
-                
-                if(cards[randomIndex]) {
-                    const selectedCard = cards[randomIndex];
-                    const thumb = selectedCard.querySelector('img');
-                    const title = selectedCard.querySelector('h3');
-                    const channel = selectedCard.querySelector('p');
-
-                    // Apply the highlight class (handles the border pulse via pseudo-element)
-                    selectedCard.classList.add('highlight-active', 'bg-yt2', 'scale-[1.02]');
-                    
-                    thumb.src = "%%THUMBNAIL_URL%%";
-                    thumb.classList.add('object-top');
-                    title.textContent = "%%TITLE%%";
-                    channel.textContent = "Neo TY Channel";
-                }
             </script>
         </body>
     </html>

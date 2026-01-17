@@ -46,3 +46,23 @@ button {
 .footer-list a {
   @apply hover:text-pink-500 transition;
 }
+
+/* Custom Pink Scrollbar for the AI Overlay */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ec4899; /* pink-500 */
+  border-radius: 10px;
+  cursor: grab;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #db2777; /* pink-600 */
+}
