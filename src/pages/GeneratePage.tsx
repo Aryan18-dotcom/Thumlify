@@ -44,15 +44,6 @@ const MODELS = [
   { id: "basic", label: "Basic", credits: 10 },
 ];
 
-const LOADING_MESSAGES = [
-  "✨ Your image is being visually processed...",
-  "🎨 Adding artistic touches to your thumbnail...",
-  "⚡ Crunching pixels and creative ideas...",
-  "🚀 Launching your thumbnail into existence...",
-  "🎭 Applying visual magic and filters...",
-  "💫 Rendering your masterpiece...",
-];
-
 const INITIAL_STATE = {
   title: "",
   aspect: "16:9" as "16:9" | "1:1" | "9:16",
