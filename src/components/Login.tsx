@@ -28,7 +28,7 @@ const Login = () => {
     if (loading) return;
 
     setLoading(true);
-    const serverUrl = import.meta.env.VITE_SERVER_API_URI || 'http://localhost:3000';
+    const serverUrl = import.meta.env.VITE_SERVER_API_URI;
     const endpoint = state === 'login' ? '/api/auth/login' : '/api/auth/register';
     
     try {
@@ -55,6 +55,8 @@ const Login = () => {
         toast.error(data.message || 'Authentication failed');
       }
     } catch (error) {
+      console.log(error);
+      
       toast.error("Connection failed. Is the server running?");
     } finally {
       setLoading(false);
