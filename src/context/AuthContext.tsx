@@ -33,7 +33,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const checkAuth = async () => {
     setIsLoading(true);
     try {
-      const serverUrl = import.meta.env.VITE_SERVER_API_URI || 'http://localhost:3000';
+      const serverUrl = import.meta.env.VITE_SERVER_API_URI;
       const response = await fetch(`${serverUrl}/api/auth/current-user`, {
         method: 'GET',
         credentials: 'include',
@@ -54,7 +54,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const fetchCredits = async () => {
     try {
-      const serverUrl = import.meta.env.VITE_SERVER_API_URI || 'http://localhost:3000';
+      const serverUrl = import.meta.env.VITE_SERVER_API_URI;
       const response = await fetch(`${serverUrl}/api/credits/user-credits`, {
         method: 'GET',
         credentials: 'include',
@@ -107,7 +107,7 @@ export const useAuth = () => {
   return context
 }
 
-const serverUrl = import.meta.env.VITE_SERVER_API_URI || 'http://localhost:3000';
+const serverUrl = import.meta.env.VITE_SERVER_API_URI;
 
 export const checkUserCredits = async (): Promise<boolean> => {
   try {

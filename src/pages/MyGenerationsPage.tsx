@@ -33,7 +33,7 @@ const MyGenerationsPage = () => {
     const [selectedThumb, setSelectedThumb] = useState<IThumbnail | null>(null);
     const [isDownloading, setIsDownloading] = useState(false);
 
-    const serverUrl = import.meta.env.VITE_SERVER_API_URI || 'http://localhost:3000';
+    const serverUrl = import.meta.env.VITE_SERVER_API_URI;
 
     useEffect(() => {
         if (!authLoading && !isAuthenticated) {

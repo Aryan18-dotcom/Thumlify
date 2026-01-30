@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const serverUrl = import.meta.env.VITE_SERVER_API_URI || 'http://localhost:3000';
+const serverUrl = import.meta.env.VITE_SERVER_API_URI;
 
 const CREDIT_COSTS: Record<string, number> = {
     'PNG': 0,

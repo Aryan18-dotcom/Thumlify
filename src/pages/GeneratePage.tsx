@@ -82,7 +82,7 @@ const GeneratePage = () => {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const serverUrl = import.meta.env.VITE_SERVER_API_URI || 'http://localhost:3000';
+  const serverUrl = import.meta.env.VITE_SERVER_API_URI;
 
   const handleInputChange = (field: keyof typeof INITIAL_STATE, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }));
