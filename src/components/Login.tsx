@@ -30,6 +30,7 @@ const Login = () => {
     setLoading(true);
     const serverUrl = import.meta.env.VITE_SERVER_API_URI;
     const endpoint = state === 'login' ? '/api/auth/login' : '/api/auth/register';
+    console.log(serverUrl+endpoint);
     
     try {
       const payload = state === 'login' 
