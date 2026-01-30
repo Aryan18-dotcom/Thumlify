@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import SoftBackDrop from "../components/SoftBackDrop";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { checkUserCredits, useAuth } from "../context/AuthContext";
 import {
   ImageIcon,
   ChevronDown,
@@ -16,6 +16,7 @@ import {
   Cpu,
   Image as ImageLucide,
   User,
+  InfoIcon,
 } from "lucide-react";
 import { useParams } from "react-router-dom";
 
@@ -76,7 +77,7 @@ const GeneratePage = () => {
   const [modelOpen, setModelOpen] = useState(false);
 
   // LOGIC FIX: Separate User Upload Preview from Backend Result Image
-  const [userUploadPreview, setUserUploadPreview] = useState<string | null>(null);
+  const [userUploadPreview, setUserUploadPreview] = useState<string | null>(null); 
   const [resultImageUrl, setResultImageUrl] = useState<string | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -144,23 +145,21 @@ const GeneratePage = () => {
     setLoading(true);
 
     const selectedModel = MODELS.find(m => m.id === formData.priceModel);
+    const hasCredits = await checkUserCredits();
+
+    if (!hasCredits) {
+      // Refresh credits in navbar
+      await fetchCredits();
+
+      toast.error("Insufficient balance", {
+        icon: <InfoIcon />,
+      });
+      navigate("/pricing");
+      return;
+    }
 
     try {
-      // Step A: Deduct Credits
-      const creditRes = await fetch(`${serverUrl}/api/credits/deduct-credits`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: selectedModel?.credits || 5 }),
-        credentials: 'include',
-      });
-
-      if (!creditRes.ok) {
-        const creditData = await creditRes.json();
-        navigate('/pricing')
-        throw new Error(creditData.error || "Insufficient credits");
-      }
-
-      // Step B: Generate Thumbnail
+      // Step A: Generate Thumbnail
       const requestData = {
         title: formData.title,
         style: formData.style,
@@ -178,14 +177,27 @@ const GeneratePage = () => {
         credentials: 'include',
       });
 
+      console.log(genRes);
+      
       const genData = await genRes.json();
 
+      console.log(genData);
+      
       if (!genRes.ok) {
         throw new Error(genData.error || "Generation failed");
       }
 
       toast.success("Thumbnail generated successfully!");
 
+      
+      // Step B: Deduct Credits
+      await fetch(`${serverUrl}/api/credits/deduct-credits`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: selectedModel?.credits || 5 }),
+        credentials: 'include',
+      });
+      
       // Refresh credits in navbar
       await fetchCredits();
 

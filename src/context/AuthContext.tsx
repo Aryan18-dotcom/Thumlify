@@ -106,3 +106,23 @@ export const useAuth = () => {
   }
   return context
 }
+
+const serverUrl = import.meta.env.VITE_SERVER_API_URI || 'http://localhost:3000';
+
+export const checkUserCredits = async (): Promise<boolean> => {
+  try {
+    const res = await fetch(`${serverUrl}/api/credits/user-credits`, {
+      credentials: "include"
+    });
+
+    if (!res.ok) return false;
+
+    const data = await res.json();
+    return data?.credits > 0;
+
+  } catch (error) {
+    console.error("Credit check failed:", error);
+    return false;
+  }
+};
+
