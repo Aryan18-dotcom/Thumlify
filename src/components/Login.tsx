@@ -97,6 +97,8 @@ const Login = () => {
           {loading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : (state === "login" ? "Login" : "Create Account")}
         </button>
 
+        {/* <div className="h-[1px] mt-6 w-full px-6 bg-gradient-to-br from-neutral-800 via-neutral-400 to-neutral-800 rounded-2xl" /> */}
+
         <p className="text-zinc-400 text-sm mt-6">
           {state === "login" ? "Don't have an account?" : "Already have an account?"}
           <span onClick={() => setState(state === 'login' ? 'register' : 'login')} className="text-pink-400 hover:underline ml-1 cursor-pointer">
