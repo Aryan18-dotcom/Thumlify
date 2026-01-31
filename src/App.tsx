@@ -17,6 +17,8 @@ import CommunityPage from "./pages/CommunityPage";
 import { AuthProvider } from "./context/AuthContext";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import PricingPage from "./pages/PricingPage";
+import ManageAccountPage from "./pages/ManageAccountPage";
+import ThumbnialDetsPage from "./pages/ThumbnialDetsPage";
 
 function AppContent() {
     const { pathname } = useLocation();
@@ -47,6 +49,8 @@ function AppContent() {
                 <Route path="/youtube-preview" element={<YouTubePreviewPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/manage-account" element={<ManageAccountPage />} />
+                <Route path="/my-thumbnial-dets/:thumb_id" element={<ThumbnialDetsPage />} />
             </Routes>
             <Footer />
         </>

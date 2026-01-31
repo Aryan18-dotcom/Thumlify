@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
 interface User {
-  id: string
+  _id: string
   username: string
   email: string
+  accountTiers: string
 }
 
 interface Credits {
@@ -62,8 +63,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       });
 
       const data = await response.json();
-      console.log("credits", data);
-      
 
       if (response.ok) {
         // Logic Check: Ensure these keys actually exist in your API response
@@ -115,20 +114,22 @@ export const useAuth = () => {
 
 const serverUrl = import.meta.env.VITE_SERVER_API_URI;
 
-export const checkUserCredits = async (): Promise<boolean> => {
+// Updated to return the actual credit count
+export const checkUserCredits = async (): Promise<number> => {
   try {
     const res = await fetch(`${serverUrl}/api/credits/user-credits`, {
       credentials: "include"
     });
 
-    if (!res.ok) return false;
+    if (!res.ok) return 0;
 
     const data = await res.json();
-    return data?.credits > 0;
+    // Return the number of credits (ensure it's a number)
+    return Number(data?.credits) || 0;
 
   } catch (error) {
     console.error("Credit check failed:", error);
-    return false;
+    return 0;
   }
 };
 

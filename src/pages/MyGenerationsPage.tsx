@@ -5,7 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { 
     ArrowUpRightIcon, DownloadIcon, TrashIcon, Search, X, 
     Loader2, Coins, Palette, 
-    Layers, Clock 
+    Layers, Clock, 
+    MonitorPlayIcon
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
@@ -182,7 +183,10 @@ const MyGenerationsPage = () => {
                                             <button onClick={() => setSelectedThumb(thumbnail)} className="p-3 bg-white text-black rounded-xl hover:bg-pink-500 hover:text-white transition-colors shadow-xl">
                                                 <DownloadIcon size={18} />
                                             </button>
-                                            <Link to={`/youtube-preview?thumbnail_url=${thumbnail.imageUrl}&title=${thumbnail.title}`} className="p-3 bg-zinc-900/80 backdrop-blur-md text-white rounded-xl hover:bg-zinc-800 transition-colors border border-white/10">
+                                            <a href={`/youtube-preview?thumbnail_url=${thumbnail.imageUrl}&title=${thumbnail.title}`}   target="_blank" className="p-3 bg-zinc-900/80 backdrop-blur-md text-white rounded-xl hover:bg-zinc-800 transition-colors border border-white/10">
+                                                <MonitorPlayIcon size={18} />
+                                            </a>
+                                            <Link to={`/my-thumbnial-dets/${thumbnail._id}`} className="p-3 bg-zinc-900/80 backdrop-blur-md text-white rounded-xl hover:bg-zinc-800 transition-colors border border-white/10">
                                                 <ArrowUpRightIcon size={18} />
                                             </Link>
                                         </div>

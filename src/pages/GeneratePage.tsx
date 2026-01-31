@@ -77,7 +77,7 @@ const GeneratePage = () => {
   const [modelOpen, setModelOpen] = useState(false);
 
   // LOGIC FIX: Separate User Upload Preview from Backend Result Image
-  const [userUploadPreview, setUserUploadPreview] = useState<string | null>(null); 
+  const [userUploadPreview, setUserUploadPreview] = useState<string | null>(null);
   const [resultImageUrl, setResultImageUrl] = useState<string | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -142,21 +142,26 @@ const GeneratePage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
 
-    const selectedModel = MODELS.find(m => m.id === formData.priceModel);
-    const hasCredits = await checkUserCredits();
+    const selectedModel = MODELS.find((m) => m.id === formData.priceModel);
+    const requiredCredits = selectedModel?.credits || 10;
 
-    if (!hasCredits) {
-      // Refresh credits in navbar
+    const userBalance = await checkUserCredits();
+
+    if (userBalance < requiredCredits) {
       await fetchCredits();
 
-      toast.error("Insufficient balance", {
-        icon: <InfoIcon />,
-      });
+      toast.error(
+        `Insufficient credits. This requires ${requiredCredits} credits, but you only have ${userBalance}.`,
+        {
+          icon: <InfoIcon className="text-pink-500" />,
+        }
+      );
       navigate("/pricing");
       return;
     }
+
+    setLoading(true);
 
     try {
       // Step A: Generate Thumbnail
@@ -177,27 +182,21 @@ const GeneratePage = () => {
         credentials: 'include',
       });
 
-      console.log(genRes);
-      
       const genData = await genRes.json();
 
-      console.log(genData);
-      
       if (!genRes.ok) {
         throw new Error(genData.error || "Generation failed");
       }
 
       toast.success("Thumbnail generated successfully!");
 
-      
-      // Step B: Deduct Credits
       await fetch(`${serverUrl}/api/credits/deduct-credits`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: selectedModel?.credits || 5 }),
+        body: JSON.stringify({ amount: requiredCredits }),
         credentials: 'include',
       });
-      
+
       // Refresh credits in navbar
       await fetchCredits();
 
@@ -212,7 +211,6 @@ const GeneratePage = () => {
   };
 
   const fetchGeneratedThumbnail = useCallback(async () => {
-    // If no ID exists in the URL, we are in "Create Mode"
     if (!id) {
       setFormData(INITIAL_STATE);
       setResultImageUrl(null);
@@ -222,8 +220,6 @@ const GeneratePage = () => {
     }
 
     try {
-      // 1. Fetch data from your live API
-      // Using GET is standard for fetching data by ID
       const response = await fetch(`${serverUrl}/api/thumbnail/generate/${id}`, {
         method: 'GET',
         headers: {
@@ -238,14 +234,11 @@ const GeneratePage = () => {
         throw new Error(data.error || "Failed to fetch thumbnail");
       }
 
-      // 2. Extract the thumbnail object (assuming your API returns { thumbnail: {...} } or just {...})
       const thumbnail = data.data;
 
-
-      // 3. Populate the Form State to match the fetched data
       setFormData({
         title: thumbnail.title || "",
-        aspect: thumbnail.aspect_ratio || "16:9", // Map DB 'aspect_ratio' to state 'aspect'
+        aspect: thumbnail.aspect_ratio || "16:9",
         style: thumbnail.style || STYLES[2].id,
         colorScheme: thumbnail.color_scheme || COLOR_SCHEMES[1].id,
         priceModel: thumbnail.model || MODELS[1].id,

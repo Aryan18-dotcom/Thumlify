@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { MenuIcon, XIcon, LogOut, Settings, User, Zap, ChevronDown, LayoutGrid, Image as ImageIcon, Globe } from "lucide-react";
+import { MenuIcon, XIcon, LogOut, Settings, User, Zap, ChevronDown, LayoutGrid, Image as ImageIcon, Globe, IndianRupeeIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -13,11 +13,6 @@ export default function Navbar() {
     const navigate = useNavigate();
     const location = useLocation();
     const { isAuthenticated, user, credits, logout } = useAuth();
-
-    console.log(isAuthenticated);
-    console.log(user);
-    console.log(credits);
-    
     
     // Close dropdown when clicking outside
     useEffect(() => {
@@ -72,6 +67,7 @@ export default function Navbar() {
         { name: "Generate", path: "/generate", icon: <ImageIcon size={16}/> },
         { name: "Gallery", path: "/my-gallery", icon: <LayoutGrid size={16}/> },
         { name: "Community", path: "/community", icon: <User size={16}/> },
+        { name: "Pricing", path: "/pricing", icon: <IndianRupeeIcon size={16}/> },
     ];
 
     return (
