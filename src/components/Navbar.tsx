@@ -14,6 +14,11 @@ export default function Navbar() {
     const location = useLocation();
     const { isAuthenticated, user, credits, logout } = useAuth();
 
+    console.log(isAuthenticated);
+    console.log(user);
+    console.log(credits);
+    
+    
     // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {

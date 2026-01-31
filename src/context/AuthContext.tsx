@@ -52,6 +52,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+  // Inside AuthProvider
   const fetchCredits = async () => {
     try {
       const serverUrl = import.meta.env.VITE_SERVER_API_URI;
@@ -60,18 +61,23 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         credentials: 'include',
       });
 
+      const data = await response.json();
+      console.log("credits", data);
+      
+
       if (response.ok) {
-        const data = await response.json();
+        // Logic Check: Ensure these keys actually exist in your API response
         setCredits({
-          credits: data.credits,
-          totalSpent: data.totalSpent,
-          username: data.username
+          credits: data.credits ?? 0,
+          totalSpent: data.totalSpent ?? 0,
+          username: data.username || ""
         });
       } else {
+        console.error('Credits API returned error:', data);
         setCredits(null);
       }
     } catch (error) {
-      console.error('Error fetching credits:', error);
+      console.error('Network error fetching credits:', error);
       setCredits(null);
     }
   };
